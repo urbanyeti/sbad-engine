@@ -12,8 +12,8 @@ namespace SBad.Visual.UI.Buttons
 		string HoverAnimationKey { get; set; }
 		string ClickAnimationKey { get; set; }
 		Action<IButton> Action { get; set; }
-		void Hover(bool hover);
-		void Click();
+		void Hover(bool hover, AnimationStore animations);
+		void Click(AnimationStore animations);
 
 		IButton SetFrame(TextureFrame frame);
 		IButton SetText(SpriteFont font, string text, Color? color = null, Alignment? alignment = null);
