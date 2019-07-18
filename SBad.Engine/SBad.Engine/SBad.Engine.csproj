@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>0.1</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SBad.Core\SBad.Core.csproj" />
+    <ProjectReference Include="..\SBad.Visual.UI\SBad.Visual.UI.csproj" />
+    <ProjectReference Include="..\SBad.Visual\SBad.Visual.csproj" />
+  </ItemGroup>
+
+</Project>
