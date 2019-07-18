@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace SBad.VisualElements.UI
+namespace SBad.Visual.UI
 {
 	[Serializable]
 	internal class ButtonBuildFailure : Exception

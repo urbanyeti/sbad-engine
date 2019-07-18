@@ -13,5 +13,6 @@ namespace SBad.Visual.UI.Buttons
 		IButtonBuilder SetHoverAnimation();
 		IButtonBuilder SetClickAnimation();
 		IButtonBuilder SetName(string name);
-	}
+        void BuildFailed(string message);
+    }
 }
