@@ -2,7 +2,7 @@
 using SBad.Visual;
 using SBad.Visual.UI.Buttons;
 
-namespace SBad
+namespace SBad.Engine
 {
     public abstract class GameMode
     {
