@@ -22,7 +22,7 @@ namespace SBad.Visual.UI
             _RepositionElements();
             if (element is IButton button)
             {
-                //SBadGame.GameMode.Buttons[button.Id] = button;
+                _AddButton(button);
             }
             return this;
         }
@@ -81,6 +81,19 @@ namespace SBad.Visual.UI
                     y + element.Padding.Top));
 
                 runningX += element.Padding.Left + element.Width + element.Padding.Right;
+            }
+        }
+
+        private void _AddButton(IButton button)
+        {
+            var container = this.Container;
+            while(container.Container != null)
+            {
+                container = container.Container;
+            }
+            if (container is Window window)
+            {
+                window.Buttons.Add(button);
             }
         }
     }

@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using SBad.Core.Structures;
 using SBad.Visual.Sprites;
+using SBad.Visual.UI.Buttons;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +14,7 @@ namespace SBad.Visual.UI
     public class Window : VisualElement
     {
         public List<Div> Divs { get; } = new List<Div>();
+        public DictionaryStore<IButton> Buttons { get; private set; } = new DictionaryStore<IButton>();
 
         public Window AddDiv(Div div)
         {
