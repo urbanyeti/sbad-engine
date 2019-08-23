@@ -12,5 +12,7 @@ namespace SBad.Engine
         GraphicsDeviceManager GraphicsDeviceManager { get; set; }
         SpriteBatch SpriteBatch { get; set; }
         TextureFrameStore TextureFrameStore { get; set; }
+        GameTime GameTime { get; set; }
+        InputState InputState { get; set; }
     }
 }
