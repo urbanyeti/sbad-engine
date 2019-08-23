@@ -9,7 +9,20 @@ namespace SBad.Engine
 {
 	public class InputState
 	{
-		public KeyboardState OldKeyboardState { get; set; }
-		public MouseState OldMouseState { get; set; }
+        public InputState() { }
+
+        public InputState(InputState inputState)
+            : this(inputState.MouseState, inputState.KeyboardState, inputState.GamePadState) { }
+
+        public InputState(MouseState mouseState, KeyboardState keyboardState, GamePadState gamePadState)
+        {
+            MouseState = mouseState;
+            KeyboardState = keyboardState;
+            GamePadState = gamePadState;
+        }
+
+        public MouseState MouseState { get; }
+        public KeyboardState KeyboardState { get; }
+        public GamePadState GamePadState { get; }
 	}
 }

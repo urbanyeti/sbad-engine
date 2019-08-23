@@ -14,5 +14,6 @@ namespace SBad.Engine
         TextureFrameStore TextureFrameStore { get; set; }
         GameTime GameTime { get; set; }
         InputState InputState { get; set; }
+        InputState OldInputState { get; set; }
     }
 }

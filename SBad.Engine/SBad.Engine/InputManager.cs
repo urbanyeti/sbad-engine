@@ -15,28 +15,42 @@ namespace SBad.Engine
         }
 
         public IGameState GameState { get; }
+        public InputState InputState => GameState.InputState;
+        public InputState OldInputState => GameState.OldInputState;
 
         public event LeftButtonPressedHandler LeftButtonPressed;
         public event KeyboardKeyPressedHandler KeyboardKeyPressed;
 
-        public void CheckMouseState(MouseState state)
+        public void Update()
         {
-            var oldMouseState = GameState.InputState.OldMouseState;
+            GameState.OldInputState = new InputState(InputState);
+            GameState.InputState = new InputState(
+                Mouse.GetState(),
+                Keyboard.GetState(),
+                GamePad.GetState(0)
+            );
+        }
 
-            if (state.LeftButton == ButtonState.Pressed)
+        public void CheckMouseState()
+        {
+            var mouseState = GameState.InputState.MouseState;
+            var oldMouseState = GameState.OldInputState.MouseState;
+
+            if (mouseState.LeftButton == ButtonState.Pressed)
             {
                 if ((oldMouseState.LeftButton != ButtonState.Pressed))
                 {
-                    OnLeftButtonPressed(new LeftButtonPressedEventArgs(state.Position));
+                    OnLeftButtonPressed(new LeftButtonPressedEventArgs(mouseState.Position));
                 }
             }
         }
 
-        public void CheckKeyboardState(KeyboardState state)
+        public void CheckKeyboardState()
         {
-            var oldKeyboardState = GameState.InputState.OldKeyboardState;
+            var keyboardState = GameState.InputState.KeyboardState;
+            var oldKeyboardState = GameState.OldInputState.KeyboardState;
 
-            foreach (Keys key in state.GetPressedKeys())
+            foreach (Keys key in keyboardState.GetPressedKeys())
             {
                 if (oldKeyboardState.IsKeyDown(key))
                 {
