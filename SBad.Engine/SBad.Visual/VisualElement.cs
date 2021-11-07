@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using SBad.Visual.Sprites;
 
@@ -24,6 +19,8 @@ namespace SBad.Visual
 
 		public Vector2 Position { get; set; }
 		public Rectangle BoundaryBox { get => new Rectangle(Position.ToPoint(), new Point(Width, Height)); }
+
+        public Color Color { get; set; }
 
         public Color BorderColor { get; set; }
         public int BorderWidth { get; set; }

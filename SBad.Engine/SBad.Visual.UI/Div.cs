@@ -2,14 +2,12 @@
 using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using SBad.Visual;
 using SBad.Visual.Sprites;
 
 namespace SBad.Visual.UI
 {
 	public class Div : VisualElement
 	{
-        public Color Color { get; set; }
 		public List<Row> Rows { get; set; } = new List<Row>();
 
 		public Div AddRow(Row row)
@@ -36,10 +34,16 @@ namespace SBad.Visual.UI
 
 		public override void Draw(SpriteBatch spriteBatch, TextureFrameStore textureFrames)
 		{
+            if (Color != null)
+            {
+                this.ColorFill(spriteBatch, textureFrames);
+            }
+
             if (BorderWidth > 0)
             {
-                this.DrawBorder(spriteBatch, textureFrames, BorderWidth, Color);
+                this.DrawBorder(spriteBatch, textureFrames);
             }
+
 			Rows.ForEach(x => x.Draw(spriteBatch, textureFrames));
 		}
 

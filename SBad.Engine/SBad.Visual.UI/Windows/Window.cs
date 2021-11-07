@@ -27,7 +27,16 @@ namespace SBad.Visual.UI
 
         public override void Draw(SpriteBatch spriteBatch, TextureFrameStore textureFrames)
         {
-            this.DrawBorder(spriteBatch, textureFrames, BorderWidth, BorderColor);
+            if (Color != null)
+            {
+                this.ColorFill(spriteBatch, textureFrames);
+            }
+
+            if (BorderWidth > 0)
+            {
+                this.DrawBorder(spriteBatch, textureFrames);
+            }
+
             Divs.ForEach(x => x.Draw(spriteBatch, textureFrames));
         }
 

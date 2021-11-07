@@ -6,34 +6,35 @@ namespace SBad.Visual
 {
     public static class VisualElementExtensions
     {
-        /// <summary>
-        /// Will draw a border (hollow rectangle) of the given 'thicknessOfBorder' (in pixels)
-        /// of the specified color.
-        ///
-        /// By Sean Colombo, from http://bluelinegamestudios.com/blog
-        /// </summary>
-        /// <param name="rectangleToDraw"></param>
-        /// <param name="thicknessOfBorder"></param>
-        public static void DrawBorder(this IVisualElement element, SpriteBatch spriteBatch, TextureFrameStore textureFrames, int thicknessOfBorder, Color borderColor)
+        public static void ColorFill(this IVisualElement element, SpriteBatch spriteBatch, TextureFrameStore textureFrames)
         {
             var pixel = textureFrames["pixel"].Texture;
             var rectangleToDraw = element.BoundaryBox;
+
+            spriteBatch.Draw(pixel, new Rectangle(rectangleToDraw.X, rectangleToDraw.Y, rectangleToDraw.Width, rectangleToDraw.Height), element.Color);
+        }
+
+        public static void DrawBorder(this IVisualElement element, SpriteBatch spriteBatch, TextureFrameStore textureFrames)
+        {
+            var pixel = textureFrames["pixel"].Texture;
+            var rectangleToDraw = element.BoundaryBox;
+
             // Draw top line
-            spriteBatch.Draw(pixel, new Rectangle(rectangleToDraw.X, rectangleToDraw.Y, rectangleToDraw.Width, thicknessOfBorder), borderColor);
+            spriteBatch.Draw(pixel, new Rectangle(rectangleToDraw.X, rectangleToDraw.Y, rectangleToDraw.Width, element.BorderWidth), element.BorderColor);
 
             // Draw left line
-            spriteBatch.Draw(pixel, new Rectangle(rectangleToDraw.X, rectangleToDraw.Y, thicknessOfBorder, rectangleToDraw.Height), borderColor);
+            spriteBatch.Draw(pixel, new Rectangle(rectangleToDraw.X, rectangleToDraw.Y, element.BorderWidth, rectangleToDraw.Height), element.BorderColor);
 
             // Draw right line
-            spriteBatch.Draw(pixel, new Rectangle((rectangleToDraw.X + rectangleToDraw.Width - thicknessOfBorder),
-                                            rectangleToDraw.Y,
-                                            thicknessOfBorder,
-                                            rectangleToDraw.Height), borderColor);
+            spriteBatch.Draw(pixel, new Rectangle((rectangleToDraw.X + rectangleToDraw.Width - element.BorderWidth),
+                rectangleToDraw.Y,
+                element.BorderWidth,
+                rectangleToDraw.Height), element.BorderColor);
             // Draw bottom line
             spriteBatch.Draw(pixel, new Rectangle(rectangleToDraw.X,
-                                            rectangleToDraw.Y + rectangleToDraw.Height - thicknessOfBorder,
-                                            rectangleToDraw.Width,
-                                            thicknessOfBorder), borderColor);
+                rectangleToDraw.Y + rectangleToDraw.Height - element.BorderWidth,
+                rectangleToDraw.Width,
+                element.BorderWidth), element.BorderColor);
         }
     }
 }

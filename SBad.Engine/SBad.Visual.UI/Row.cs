@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using SBad.Visual.Sprites;
@@ -37,10 +35,16 @@ namespace SBad.Visual.UI
 
         public override void Draw(SpriteBatch spriteBatch, TextureFrameStore textureFrames)
         {
+            if (Color != null)
+            {
+                this.ColorFill(spriteBatch, textureFrames);
+            }
+
             if (BorderWidth > 0)
             {
-                this.DrawBorder(spriteBatch, textureFrames, BorderWidth, BorderColor);
+                this.DrawBorder(spriteBatch, textureFrames);
             }
+
             Elements.ForEach(x => x.Draw(spriteBatch, textureFrames));
         }
 

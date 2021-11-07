@@ -12,6 +12,7 @@ namespace SBad.Visual
 		Alignment Alignment { get; set; }
 		IVisualElement Container { get; set; }
 		Padding Padding { get; set; }
+        Color Color { get; set; }
         Color BorderColor { get; set; }
         int BorderWidth { get; set; }
         bool AutoHeight { get; set; }

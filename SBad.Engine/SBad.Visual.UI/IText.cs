@@ -7,7 +7,6 @@ namespace SBad.Visual.UI
 	{
 		SpriteFont Font { get; }
 		string Text { get; }
-		Color Color { get; }
 		Alignment TextAlign { get; }
 
 		void DrawText(SpriteBatch spriteBatch);

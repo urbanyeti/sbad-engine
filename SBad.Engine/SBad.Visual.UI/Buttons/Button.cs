@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using SBad.Visual.Sprites;
@@ -34,7 +30,7 @@ namespace SBad.Visual.UI.Buttons
 
 		public SpriteFont Font { get; private set; }
 		public string Text { get; private set; }
-		public Color Color { get; private set; }
+		public Color Color { get; set; }
 		public Alignment TextAlign { get; private set; }
 		public Rectangle BoundaryBox
 		{
