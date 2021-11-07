@@ -39,13 +39,13 @@ namespace SBad.Visual.UI
                 this.ColorFill(spriteBatch, textureFrames);
             }
 
+			Rows.ForEach(x => x.Draw(spriteBatch, textureFrames));
+
             if (BorderWidth > 0)
             {
                 this.DrawBorder(spriteBatch, textureFrames);
             }
-
-			Rows.ForEach(x => x.Draw(spriteBatch, textureFrames));
-		}
+        }
 
         private Vector2 _GetCombinedRowPosition()
         {

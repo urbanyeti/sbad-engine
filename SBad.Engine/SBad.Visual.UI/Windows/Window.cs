@@ -32,12 +32,12 @@ namespace SBad.Visual.UI
                 this.ColorFill(spriteBatch, textureFrames);
             }
 
+            Divs.ForEach(x => x.Draw(spriteBatch, textureFrames));
+
             if (BorderWidth > 0)
             {
                 this.DrawBorder(spriteBatch, textureFrames);
             }
-
-            Divs.ForEach(x => x.Draw(spriteBatch, textureFrames));
         }
 
         private void _ResizeDivs()
