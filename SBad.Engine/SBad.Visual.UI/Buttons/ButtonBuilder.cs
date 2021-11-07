@@ -56,7 +56,17 @@ namespace SBad.Visual.UI.Buttons
 
 		public IButton Execute()
 		{
-			return _Button;
+			return new Button
+			{
+				Id = _Button.Id,
+				Width = _Button.Width,
+				Height = _Button.Height,
+				Position = _Button.Position,
+				Action = _Button.Action,
+				HoverAnimationKey = _Button.HoverAnimationKey,
+				ClickAnimationKey = _Button.ClickAnimationKey
+			}
+			.SetFrame(_Button.Frame);
 		}
 
 		public abstract IButtonBuilder SetHoverAnimation();
